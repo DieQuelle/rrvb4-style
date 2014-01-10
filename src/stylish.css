@@ -1,8 +1,10 @@
 @namespace url(http://www.w3.org/1999/xhtml);
 
+<?php
 /* hier bitte nur mozilla/stylish spezifische dinge ändern!
-   der eignetliche style ist in rrvb4.css und wird hier 
+   der eigentliche style ist in rrvb4.css und wird hier 
    mittels php (bin/merge.php) eingebaut. */
+?>
 
 /* build: <?= rrb\DATE ?> */
 
