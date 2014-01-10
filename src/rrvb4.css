@@ -1,0 +1,690 @@
+/* build: <?= rrb\DATE ?> */
+
+/* --- hacks & fixes --- */
+
+/* die profil-bearbeitung abschalten */
+#userprof_customize_edit::after {
+  content: "Diese Funktion steht derzeit nicht zur Verfügung";
+  color: #fff;
+  text-shadow: 0 1px #000;
+  font-size: 20pt;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  background: rgba(100, 100, 100, .8);
+}
+
+/* den "profildesign" button richtig platzieren */
+#profile_customization_button {
+  position: absolute !important;
+  white-space: nowrap !important;
+  top: -32px !important
+}
+
+/* nur wenn die bearbeitungsfunktion sichtbar ist ein margin drunter setzen */
+#userprof_customize:not([style*="height: 0px"]) {
+  margin-bottom: 30px !important;
+}
+
+/* "was ist neu" sidebar auf der startseite
+   tab-layout anpassen */
+#whatsnewsidebar div.blocksubhead.smaller {
+  font-size: 8pt !important;
+  height: 30px !important;
+}
+
+#whatsnewsidebar div.blocksubhead.smaller li {
+  width: auto !important;
+}
+
+#whatsnewsidebar div.blocksubhead.smaller a,
+#whatsnewsidebar div.blocksubhead.smaller span {
+  line-height: 20px !important;  
+  height: 20px !important;
+  white-space: nowrap;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* die mitgliederliste innerhalb von gruppen anpassen */
+#membersblock ul.blockrow li {
+  margin-right: 22px !important;
+}
+
+#membersblock ul.blockrow li:nth-child(4n) {
+  margin-right: 0 !important;
+}
+
+#membersblock ul.blockrow li:nth-child(4n)::after {
+  content: " ";
+  height: 20px;
+  display: block;
+  clear: both;
+}
+
+/* diese meisterwerke findet man im "thumbs up? center" */
+table[width="100%"] tr:not([valign="top"]) td {
+  padding: 6px !important;
+  border-top: 1px solid #ccc;
+}
+
+/* ohne worte ... */
+big {
+  font-size: inherit;
+}
+
+/* dunkle icons auf dunklem hintergrund sind eher suboptimal */
+.blockhead > img[src*="/site_icons/"],
+.blockheadinfo + img {
+  position: relative !important;
+  background: #fff !important;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* --- general --- */
+
+body {
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.newcontent_textcontrol, 
+*:not(.blocksubhead):not(li) > .textcontrol:not(#tag_edit_link),
+#sidebar_container .actionbutton_container a.pagetitleinfo.textcontrol {
+  background-color: transparent !important;
+  background-image: linear-gradient(to bottom, #666, #222) !important;
+  color: #fff !important;
+}
+
+.newcontent_textcontrol,
+.actionbutton_container a.pagetitleinfo.textcontrol {
+  font-size: 10pt !important;
+  font-weight: bold !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 28px !important;
+  text-shadow: 0 1px #000;
+  border: 1px solid #111 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 1px rgba(200, 200, 200, .8) inset,
+              0px 3px 8px #DDD !important;
+}
+
+.newcontent_textcontrol span,
+.actionbutton_container a.pagetitleinfo.textcontrol span {
+  position: relative;
+  top: 1px;
+}
+
+#sidebar_container a.textcontrol:not(:hover) {
+  color: #424242 !important;
+}
+
+li.sgicon .controls a.textcontrol {
+  padding-left: 22px !important;
+}
+
+li.sgicon .controls a.textcontrol img { 
+  left: 2px !important;
+}
+
+.above_body,
+.body_wrapper,
+.below_body {
+  max-width: 1100px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  position: relative;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+.forumhead,
+.blockhead,
+.userprof_module,
+#searchtypeswitcher li.selected a,
+.activitystream_block dd.selected,
+.searchlisthead,
+.threadlisthead,
+.posthead {
+  background-image: linear-gradient(to bottom, #666, #222) !important;
+  border-color: #111 !important;
+  color: #fff !important;
+}
+
+/* bringt die sidebar und den content auf eine höhe auf der startseite */
+.blockfoot, .blocksubfoot {
+  padding-top: 10px !important;
+}
+
+/* bei aktivitäten einen rahmen um die beiträge zeichnen */
+li.activitybit {
+  border: 1px solid #ccc !important;
+}
+
+/* die forenheader ein wenig dicker machen */
+.forumhead {
+  padding-top: 3px !important;
+  padding-bottom: 1px !important;
+  margin-top: 12px !important;
+}
+
+.forumbit_nopost .forumhead .forumtitle {
+  min-width: 62% !important;
+}
+
+.forumbit_nopost .forumhead span.forumlastpost, 
+.forumbit_post .forumhead span.forumlastpost {
+  margin-left: 22px;
+}
+
+.forumbit_post .forumstats li, 
+.forumbit_post .forumstats_2 li {
+  white-space: nowrap !important;
+}
+
+#below_unread {
+  padding: 6px !important;
+  font-size: 8pt !important;
+  text-shadow: 0 1px #fff !important;
+}
+
+/* ein/ausklapp funktion für foren entsprechend positionieren */
+a.collapse {
+  right: 14px !important;
+  top: 22px !important;
+}
+
+.block a.collapse {
+  top: 6px !important;
+}
+
+.blockhead a.collapse {
+  top: 10px !important;
+}
+
+#pagetitle {
+  border-bottom-color: #111 !important;
+}
+
+.footer {
+  background-color: #222 !important;
+  border-color: #111 !important;
+}
+
+.footer_links {
+  margin-top: 5px !important;
+}
+
+/* --- header --- */
+
+/* der hintergrund ist ganz am ende der datei, 
+   da ein png-bild via data-uri eingebettet ist */
+
+#header::after {
+  display: none !important;
+}
+
+.logo-image {
+  color: transparent !important;
+  display: inline-block !important;
+  float: none !important;
+  clear: none !important;
+  margin-left: 10px;
+  height: 100px !important;
+}
+
+/* danke an Die_Quelle für den hinweis */
+.toplinks > ul > li > a:not(.popupctrl):hover {
+  background-image: linear-gradient(to bottom, #888, #666) !important;
+  border-radius: 0 0 5px 5px !important;
+}
+
+.toplinks a.popupctrl:hover,
+.toplinks a.popupctrl.active {
+  background-color: transparent !important;
+  background-image: url("http://board.raidrush.ws/images/misc/arrow.png"),
+                    linear-gradient(to bottom, #888, #666) !important;
+  background-repeat: no-repeat, repeat !important;
+  background-position: 100% 50%, 0 0 !important;
+  border-radius: 0 0 5px 5px !important;
+}
+
+/* --- navigation --- */
+
+#navbar {
+  background: #222 !important;
+  background-image: none !important; /* wtf ^^ */
+  margin-top: 0 !important;
+}
+
+.navtabs {
+  background: #111 !important;
+}
+
+.navtabs > ul.floatcontainer li:hover a.popupctrl,
+.navtabs > ul.floatcontainer li:hover a.popupctrl.active, 
+.navtabs > ul.floatcontainer li a.popupctrl.active {
+  border-color: #111 !important;
+  background-color: #666 !important;
+}
+
+.navtabs .popupbody {
+  border-color: #111 !important;
+  background-color: #444 !important;
+}
+
+.navtabs .popupbody li {
+  border-color: #111 !important;
+}
+
+.navtabs .popupbody li:first-child {
+  border: 0 none !important;
+}
+
+.navtabs ul {
+  border-top: 1px solid #444 !important;
+}
+
+.navtabs li {
+  border-right-color: #444 !important;
+}
+
+.navtabs li:first-child {
+  border-left-color: #444 !important;
+}
+
+.navtabs li a.navtab {
+  background: linear-gradient(to bottom, #666, #444) !important;
+  border-top-color: #999 !important;
+  border-left-color: #999 !important;
+}
+
+.navtabs li.selected a.navtab {
+  box-shadow: 0 1px #CAFF2A inset, 0 2px #C4FF12 inset, 1px 0 #999 inset;
+  border-top-color: #FAFFEA !important;
+  border-left: 0 none !important;
+}
+
+.navtabs li a.navtab:hover,
+.navtabs li.selected a.navtab {
+  color: #fff !important;
+  background: linear-gradient(to bottom, #888, #666) !important;
+}
+
+.toplinks .nonotifications .popupbody a:hover,
+.navtabs > ul.floatcontainer .popupbody li a:hover {
+  background: linear-gradient(to bottom, #fefefe, #eee) !important;
+}
+
+/* --- suchfunktion im header --- */ 
+
+.globalsearch .textboxcontainer,
+.globalsearch .textboxcontainer span {
+  border: 0 none !important;
+  padding: 0 !important;
+} 
+
+.globalsearch .textboxcontainer span {
+  height: auto !important;
+}
+
+.globalsearch .buttoncontainer,
+.globalsearch .buttoncontainer span {
+  border: 0 none !important;
+}
+
+.globalsearch .buttoncontainer {
+  position: relative !important;
+  top: 1px !important;
+}
+
+.globalsearch input.textbox {
+  border: 1px solid #111 !important;
+  padding: 0 4px !important;
+  background: #444 !important;
+  height: 24px !important;
+  color: #fff !important;
+  width: 145px !important;
+}
+
+/* --- gruppen --- */
+
+#groupsearch {
+  border-width: 1px !important;
+}
+
+#groupsearch .searchbox {
+  padding: 4px 0 !important;
+}
+
+#sidebar li.sgicon .leftcol img.sgicon {
+  width: auto !important;
+  height: auto !important;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+#groupinfo  #sgiconbox {
+  text-align: center;
+}
+
+#view-group-groupimage {
+  display: inline-block !important;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+/* --- die content + sidebar geschichte --- */
+
+/* float generall erstmal abstellen */
+#content_container {
+  float: none !important;
+}
+
+#content_container,
+#content_container #content {
+  margin-right: 0 !important;
+}
+
+/* dieser selector bezieht sich in erster linie auf die forum-seite */
+.body_wrapper > #sidebar_container {
+  position: absolute;
+  top: -18px;
+  right: -335px;
+  width: 325px !important;
+  float: none !important;
+}
+
+/* falls die sidebar im original-style ausgeblendet wurde hier wieder einblenden */
+.body_wrapper > #sidebar_container.sidebar_closed,
+.body_wrapper > #sidebar_container #sidebar.sidebar_hidden {
+  display: block !important;
+}
+
+/* den button zum ausblenden entfernen */
+#sidebar_button {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* bei einer breite von 1600 - 1790px das forum nur leicht nach links versetzen */ 
+@media all and (min-width: 1600px) and (max-width: 1790px) {
+  .above_body,
+  .body_wrapper,
+  .below_body {
+    width: 980px !important;
+    left: -50px !important;
+  }
+}
+
+/* bei einer breite von 1342 - 1599px das forum ein wenig mehr nach links versetzen */
+@media all and (min-width: 1342px) and (max-width: 1599px) {
+  .above_body,
+  .body_wrapper,
+  .below_body {
+    width: 980px !important;
+    left: -165px !important;
+  }
+}
+
+/* bei einer breite von <= 1341px die sidebar komplett entfernen */
+@media all and (max-width: 1341px) {
+  .above_body,
+  .body_wrapper,
+  .below_body {
+    width: 980px !important;
+    left: 0 !important;
+  }
+
+  .body_wrapper > #sidebar_container,
+  .body_wrapper > #sidebar_container.sidebar_closed,
+  .body_wrapper > #sidebar_container #sidebar.sidebar_hidden {
+    display: none !important;
+  }
+}
+  
+/* <body onpageshow="..." ...> kommt bei der detailansicht des cms vor, 
+   hier entfernen wir die sidebar */
+[onpageshow] .vbcms_content .yui-sidebar {
+  display: none !important;
+}
+
+[onpageshow] .yui-tvb-r4 #yui-main .yui-b {
+  margin-right: 0 !important;
+}
+
+/* und jetzt fälle bei denen wir die sidebar lassen wo sie vorher war :-) */
+
+.body_wrapper #grouppagetitle ~ #content_container {
+  float: right !important;
+  margin-left: -345px !important;
+}
+
+.body_wrapper #grouppagetitle ~ #content_container #content {
+  margin-left: 345px !important;
+}
+
+.body_wrapper #grouppagetitle ~ #sidebar_container {
+  position: static !important;
+  float: left !important;
+  padding-top: 2px !important;
+}
+
+.body_wrapper #above_content ~ #content_container,
+.body_wrapper #usercss #content_container { 
+  float: left !important;
+  margin-right: -345px !important;
+}
+
+.body_wrapper #above_content ~ #content_container #content,
+.body_wrapper #usercss #content_container #content {
+  margin-right: 345px !important;
+}
+
+.body_wrapper #above_content ~ #sidebar_container,
+.body_wrapper #usercss #sidebar_container {
+  position: static !important;
+  float: right !important;
+  padding-top: 8px !important;
+}
+
+.blog #content_container {
+  margin-top: 10px !important;
+}
+
+#userinfoblock a.avatar {
+  padding: 5px !important;
+}
+
+#userinfoblock a.avatar .avatarcontainer img {
+  outline: none !important;
+  background-color: #f9f9f9 !important;
+  border: 1px solid #ccc !important;
+  padding: 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px 0px !important;
+}
+
+/* --- erweiterte suche --- */  
+
+#searchtypeswitcher li a {
+  background: #F1F1F1 url('http://board.raidrush.ws/images/gradients/top-highlight.png') repeat-x !important;
+  border: 1px solid #C1C1C1 !important;
+  border-bottom: 0 none !important;
+  color: #424242 !important;
+  font-weight: bold !important;
+}
+
+#searchtypeswitcher {
+  border-bottom-color: #222 !important;
+}
+
+.formcontrols,
+.blockbody.settings_form_border {
+  border-color: #222 !important;
+}
+
+#sidebar_container .formcontrols {
+  border-color: #dadada !important;
+}
+
+/* --- forenansicht --- */
+
+.announcements .announcerow,
+.announcerow .announcement,
+.announcerow .announceinfo {
+  background-color: #eee !important;
+}
+
+/* --- themenansicht (posts) --- */
+
+.postdetails,
+.postdetails .userinfo {
+  background-color: #f5f5f5 !important;
+}
+
+.postdetails .userinfo {
+  text-align: center;
+}
+
+.postbitlegacy .userinfo a.username {
+  font-size: 12pt !important;
+}
+
+/*
+.postdetails .username_container {
+  text-indent: 22px;
+}
+*/
+
+.postdetails img.onlinestatus {
+  position: relative !important;
+  margin-right: -20px !important;
+  top: 4px !important;
+  right: auto !important;
+}
+
+.postdetails .userinfo > div[style*="width:102px"] {
+  margin: 0 auto !important;
+  margin-bottom: 2px !important;
+}
+
+.postdetails .userinfo .postuseravatar {
+  float: none !important;
+  text-align: center !important;
+  padding: 10px !important;
+  border: 1px solid #ccc !important;
+  background-color: #f9f9f9 !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  margin-top: 10px !important;
+}
+
+.postbitlegacy dl.userinfo_extra,
+.postbitlegacy .userinfo .userinfo_extra {
+  float: none !important;
+}
+
+.postdetails .userinfo .userinfo_extra {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9 !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+}
+
+.postdetails .userinfo .userinfo_extra dt {
+  padding: 4px 6px !important;
+  font-weight: bold;
+}
+
+.postdetails .userinfo .userinfo_extra dd {
+  border-bottom: 1px solid #ccc;
+  padding: 4px 6px !important;
+  text-align: right;
+}
+
+.postdetails .userinfo .userinfo_extra table td {
+  padding: 4px 6px !important;
+  text-align: left;
+} 
+
+.postdetails .xperience {
+  margin-top: 10px !important;
+}
+
+.usertitle.understate {
+  white-space: nowrap !important;
+}
+
+.usertitle.understate br {
+  display: none;
+}
+
+.usertitle.understate b {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.postbody .title {
+  padding-top: 1px !important;
+  font-size: 10pt !important;
+}
+
+.postbody .title.icon img {
+  position: relative;
+  top: 2px;
+}
+ 
+/* --- seitenwahl --- */
+
+.pagination span a {
+  border-color: #444 !important;
+  background-color: #f0f0f0 !important;
+}
+
+.pagination span.selected a {
+  color: #000 !important;
+}
+
+.pagination span.prev_next,
+.pagination span.first_last {
+  position: relative;
+  top: 1px;
+}
+
+/* --- profilseite --- */
+
+/* horizontale trennlinie zwischen tabs */
+.memberprofiletabunder {
+ background-image: none !important;
+ background-color: #222 !important;
+}
+     
+/* ein wenig abstand zwischen tabs */
+.tabslight dd, 
+.as-tabs dd {
+  margin-left: 2px !important;
+}
+
+.tabslight dd:first-child,
+.tabslight dt + dd,
+.as-tabs dd:first-child,
+.as-tabs dt + dd {
+  margin-left: 0 !important;
+}
+
+#activity_tab_container > div {
+  padding: 2px !important;
+}
+
+/* ------------------------------ */
+
+.above_body {
+  background-image: url("data:image/png;base64,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"),
+                    linear-gradient(to bottom, #666, #222) !important;
+}
