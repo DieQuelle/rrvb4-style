@@ -1,5 +1,33 @@
 /* build: <?= rrb\DATE ?> */
 
+<?php if ($use_open_sans): ?>
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), 
+       url(http://themes.googleusercontent.com/static/fonts/opensans/v7/DXI1ORHCpsQm3Vp6mXoaTYraN7vELC11_xip9Rz-hMs.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), 
+       url(http://themes.googleusercontent.com/static/fonts/opensans/v7/RjgO7rYTmqiVp7vzi-Q5UT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), 
+       url(http://themes.googleusercontent.com/static/fonts/opensans/v7/MTP_ySUJH_bn48VBG8sNSoraN7vELC11_xip9Rz-hMs.woff) format('woff');
+}
+
+<?php endif; ?>
+
 /* --- hacks & fixes --- */
 
 /* die profil-bearbeitung abschalten */
@@ -93,6 +121,36 @@ body {
   max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+<?php if ($use_open_sans): ?>
+
+body, legend,
+.postbitlegacy .postrow, 
+.eventbit .eventrow, 
+.postbitdeleted .postrow, 
+.postbitignored .postrow,
+.pagination span a, 
+.toplinks, 
+.navtabs > ul.floatcontainer li a, 
+.navbar_advanced_search li a, 
+.navtabs li a.navtab, 
+#whatsnewsidebar div.blocksubhead.smaller,
+li.activitybit, 
+.userprof,
+dl.tabslight dd a, 
+#sidebar_container.member_summary 
+.blocksubhead.smaller, 
+#sidebar_container.member_summary .blockrow,
+.cms_article_txt_content,
+.header, .article_title {
+  font-family: 'Open Sans', 'Helvetica Neue', ubuntu, sans-serif !important;
+}
+
+<?php endif; ?>
+
+.header {
+  text-transform: none !important;
 }
 
 .newcontent_textcontrol, 
@@ -212,6 +270,18 @@ a.collapse {
 
 #pagetitle {
   border-bottom-color: #111 !important;
+}
+
+#userinfoblock a.avatar {
+  padding: 5px !important;
+}
+
+#userinfoblock a.avatar .avatarcontainer img {
+  outline: none !important;
+  background-color: #f9f9f9 !important;
+  border: 1px solid #ccc !important;
+  padding: 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px 0px !important;
 }
 
 .footer {
@@ -500,17 +570,13 @@ a.collapse {
   margin-top: 10px !important;
 }
 
-#userinfoblock a.avatar {
+/* --- cms --- */
+
+/*
+.vbcms_content .yui-b .cms_widget .widget_content {
   padding: 5px !important;
 }
-
-#userinfoblock a.avatar .avatarcontainer img {
-  outline: none !important;
-  background-color: #f9f9f9 !important;
-  border: 1px solid #ccc !important;
-  padding: 10px !important;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px 0px !important;
-}
+*/
 
 /* --- erweiterte suche --- */  
 

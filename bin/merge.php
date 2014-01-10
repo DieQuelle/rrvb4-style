@@ -14,6 +14,11 @@ if (!is_dir($out) && @!mkdir($out, 0777))
 test_out_dir();
 
 /* ------------------------------------ */
+/* optionen */
+
+$use_open_sans = false;
+
+/* ------------------------------------ */
 /* rrb4.css */
 
 ob_start();
