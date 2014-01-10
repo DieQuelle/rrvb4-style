@@ -212,10 +212,23 @@ li.sgicon .controls a.textcontrol img {
 .searchlisthead,
 .threadlisthead,
 .posthead {
-  background-image: linear-gradient(to bottom, #666, #222) !important;
+  background-image: linear-gradient(to bottom, #444, #222) !important;
   border-color: #111 !important;
   color: #fff !important;
+  /* border-radius: 0 !important; */
 }
+
+/*
+dd.userprof_module, 
+dd.userprof_moduleinactive, 
+dd.userprof_content, 
+dd.userprof_module a, 
+dd.userprof_moduleinactive a, 
+dd.userprof_content a,
+#searchtypeswitcher li a {
+  border-radius: 0 !important;
+}
+*/
 
 /* bringt die sidebar und den content auf eine höhe auf der startseite */
 .blockfoot, .blocksubfoot {
