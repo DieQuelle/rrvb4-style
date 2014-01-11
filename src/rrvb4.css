@@ -864,6 +864,18 @@ a.collapse {
 #usercp_nav .blockrow * a:active {
 	background-color: #CAFF6C !important;
 }
+#usercp_nav .blockrow .active {
+	background-color: #CAFF6C;
+}
+/* Benutzerprofil - Left Menu hr deleted */
+#usercp_nav hr {
+	display: none !important;
+}
+/* Benutzerprofil - Left Menu margin */
+#usercp_nav {
+	margin-top: 33px!important;
+}
+
 /* Mein Profil - Rang Icons Abstand nach oben */
 #sidebar_container.member_summary .mainblock .rank {
 	margin: 5px 0px 0px 0px !important;
