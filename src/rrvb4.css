@@ -175,7 +175,7 @@ dl.tabslight dd a,
 *:not(.blocksubhead):not(li) > .textcontrol:not(#tag_edit_link),
 #sidebar_container .actionbutton_container a.pagetitleinfo.textcontrol {
   background-color: transparent !important;
-  background-image: linear-gradient(to bottom, #444, #222) !important;
+  background-image: linear-gradient(to bottom, #666, #222) !important;
   color: #fff !important;
 }
 
@@ -391,6 +391,7 @@ a.collapse {
   background-image: none !important; /* wtf ^^ */
   margin-top: 0 !important;
 }
+
 /* Navbar/tabs Hintergrund entfernt */
 .navtabs {
   background: none !important;
