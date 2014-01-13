@@ -1,5 +1,23 @@
 /* build: <?= rrb\DATE ?> */
 
+/* Stylish by Murdoc and Die_Quelle 4RR */
+
+
+/* TODO: 
+
+Die_Quelle:
+- Deklarationen vereinen (erledigt)
+- 
+
+
+
+
+
+
+*/ 
+
+
+
 <?php if ($use_open_sans): ?>
 
 @font-face {
@@ -157,8 +175,14 @@ dl.tabslight dd a,
 *:not(.blocksubhead):not(li) > .textcontrol:not(#tag_edit_link),
 #sidebar_container .actionbutton_container a.pagetitleinfo.textcontrol {
   background-color: transparent !important;
-  background-image: linear-gradient(to bottom, #666, #222) !important;
+  background-image: linear-gradient(to bottom, #444, #222) !important;
   color: #fff !important;
+}
+
+.newcontent_textcontrol:hover, 
+*:not(.blocksubhead):not(li) > .textcontrol:not(#tag_edit_link):hover,
+#sidebar_container .actionbutton_container a.pagetitleinfo.textcontrol:hover {
+  background-image: linear-gradient(to bottom, #666, #222) !important;
 }
 
 .newcontent_textcontrol,
@@ -306,6 +330,12 @@ a.collapse {
   margin-top: 5px !important;
 }
 
+/* Seiten Auswahl im Blog und Forum */
+.pagination span.prev_next, .pagination span.first_last {
+  position: relative !important;
+  top: 0px !important;
+}
+
 /* --- header --- */
 
 /* der hintergrund ist ganz am ende der datei, 
@@ -324,7 +354,21 @@ a.collapse {
   height: 100px !important;
 }
 
+.nouser #remember label {
+  /* als "bold" im cms definiert -> machen wir es immer bold */
+  font-weight: 700 !important;
+  /* im cms global für labels definiert, also setzen wir es zurück */
+  padding: 0 !important;
+}
+
+.toplinks ul.nouser .logindetails,
+.toplinks ul.nouser > li > a {
+  background-image: linear-gradient(to bottom, #666, #444) !important;
+}
+
 /* danke an Die_Quelle für den hinweis */
+.toplinks ul.nouser .logindetails:hover,
+.toplinks ul.nouser > li > a:hover,
 .toplinks > ul > li > a:not(.popupctrl):hover {
   background-image: linear-gradient(to bottom, #888, #666) !important;
   border-radius: 0 0 5px 5px !important;
@@ -347,9 +391,9 @@ a.collapse {
   background-image: none !important; /* wtf ^^ */
   margin-top: 0 !important;
 }
-
+/* Navbar/tabs Hintergrund entfernt */
 .navtabs {
-  background: #111 !important;
+  background: none !important;
 }
 
 .navtabs > ul.floatcontainer li:hover a.popupctrl,
@@ -467,7 +511,7 @@ a.collapse {
 
 /* --- die content + sidebar geschichte --- */
 
-/* float generall erstmal abstellen */
+/* float generell erstmal abstellen */
 #content_container {
   float: none !important;
 }
@@ -579,6 +623,34 @@ a.collapse {
   padding-top: 8px !important;
 }
 
+/* --- Blog --- */
+
+/* Blog - Kategorien Abstand angepasst */
+.category_widget .active_menuitem a, .category_widget .main_menuitem a {
+  padding-left: 0.3em !important;
+}
+
+/* Blog - Avatar Abstand */
+.postbit-lite .postbit_pb_left {
+  padding: 0px 10px 0px 10px !important;
+}
+
+/* Blog - Avatar Maximal Breite */
+.postbit-lite .avatarlink img {
+  max-width: 60px !important;
+}
+
+/* Blog - Kommentare */
+.postbit-lite .comment_text {
+  min-height: 50px !important;
+}
+
+/* Blog - Abstand zwischen Meta und Bloginhalt, Border zur Verbesserung */
+.blogmeta {
+  margin-top: 20px !important;
+  border-top: 1px solid #ccc !important;
+  padding-top: 10px !important;
+}
 .blog #content_container {
   margin-top: 10px !important;
 }
@@ -700,6 +772,11 @@ a.collapse {
   margin-top: 10px !important;
 }
 
+.postbitlegacy dl.userinfo_extra, 
+.postbitlegacy dl.user_rep {
+  width: auto !important;
+}
+
 .usertitle.understate {
   white-space: nowrap !important;
 }
@@ -760,6 +837,43 @@ a.collapse {
 }
 
 /* --- profilseite --- */
+
+/* Mein Profil - Rang Icons Abstand nach oben */
+#sidebar_container.member_summary .mainblock .rank {
+  margin: 5px 0px 0px 0px !important;
+}
+
+/* Mein Profil - Userinfo abstand angleichen */
+#sidebar_container.member_summary h1 {
+  position:relative !important;
+  left:7px !important;
+}
+/* Mein Profil - Runde Ecken entfernt */
+#sidebar_container .blockbody {
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+   border-radius: 0 !important;
+}
+/* Online Status - in die Rechte Ecke */
+#sidebar_container .blocksubhead img.inlineimg {
+	position:absolute !important;
+	top: 3px !important;
+	right: 10px !important;
+}
+
+/* Benutzerkontrollzentrum - Moderator Link - linksbündig */
+.summaryinfo .user {
+  text-align: left !important;
+}
+
+/* Benutzerkontrollzentrum - Left Menu Hover color */
+#usercp_nav .blockrow * a:hover {
+  background-color: #CAFF6C !important;
+}
+/* Benutzerkontrollzentrum - Left Menu Active color */
+#usercp_nav .blockrow  .active {
+  background-color: #CAFF6C !important;
+}
 
 /* stats in der sidebar */
 .member_summary dl.stats dt {
@@ -833,83 +947,4 @@ a.collapse {
                     linear-gradient(to bottom, #666, #222) !important;
 }
 
-
-
-
-/* Vorschläge von Die_Quelle 4 RR */
-
-
-
-/* Navbar/tabs Hintergrund entfernt */
-.navtabs {
-	background: none !important;
-
-}
-
-/* Benutzerprofil - Runde Ecken entfernt (schwul)*/
-#sidebar_container .blockbody {
-	-moz-border-radius:none !important;
-	-webkit-border-radius:none !important;
-	border-radius:none !important;
-}
-/* Benutzerprofil - Moderator Link - linksbündig */
-.summaryinfo .user {
-		text-align: left !important;
-}
-
-/* Benutzerprofil - Left Menu Hover color */
-#usercp_nav .blockrow * a:hover {
-	background-color: #CAFF6C !important;
-}
-#usercp_nav .blockrow * a:active {
-	background-color: #CAFF6C !important;
-}
-#usercp_nav .blockrow .active {
-	background-color: #CAFF6C;
-}
-/* Benutzerprofil - Left Menu hr deleted */
-#usercp_nav hr {
-	display: none !important;
-}
-/* Benutzerprofil - Left Menu margin */
-#usercp_nav {
-	margin-top: 33px!important;
-}
-
-/* Mein Profil - Rang Icons Abstand nach oben */
-#sidebar_container.member_summary .mainblock .rank {
-	margin: 5px 0px 0px 0px !important;
-}
-/* Mein Profil - Userinfo abstand angleichen */
-#sidebar_container.member_summary h1 {
-	position:relative !important;
-	left:7px !important;
-}
-
-/* Seiten Auswahl im Blog/(forum?) */
-.pagination span.prev_next, .pagination span.first_last {
-	position: relative;
-	top: 0px !important;
-}
-/* Blog - Kategorien Abstand angepasst */
-.category_widget .active_menuitem a, .category_widget .main_menuitem a {
-	padding-left: 0.3em;
-}
-/* Blog - Avatar Abstand */
-.postbit-lite .postbit_pb_left {
-	padding: 0px 10px 0px 10px !important;
-}
-/* Blog - Avatar Maximal Breite */
-.postbit-lite .avatarlink img {
-	max-width: 60px !important;
-}
-
-/* Blog - Kommentare */
-.postbit-lite .comment_text {
-	min-height: 50px !important;
-}
-/* Blog - Abstand zwischen Meta und Bloginhalt, Border zur Verbesserung */
-.blogmeta {
-	margin-top: 20px !important;
-	border-top: 1px solid rgba(218, 218, 218, .4 ) !important;
-}
+/* - z950 Ende - */
